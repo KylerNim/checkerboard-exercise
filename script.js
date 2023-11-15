@@ -16,30 +16,20 @@ function makeTile() {
     document.querySelector('.container').appendChild(tile);
 }
 
-for (let i = 0; i < 4; i++) {
-    let opac = .8
-    let opac2 = .8
-    for (let i = 0; i < 8; i++) {
-        if (i % 2 === 0) {
-            makeTile();
-            document.querySelector('.container').lastChild.style.backgroundColor = 'teal'
-            opac = opac - .15
-            document.querySelector('.container').lastChild.style.opacity = opac
-        } else {
-            makeTile();
-            document.querySelector('.container').lastChild.style.backgroundColor = '#FFFFA8'
-        }
-    }
-    for (let i = 0; i < 8; i++) {
-        if (i % 2 === 1) {
-            makeTile();
-            document.querySelector('.container').lastChild.style.backgroundColor = 'teal'
-            opac2 = opac2 - .2
-            document.querySelector('.container').lastChild.style.opacity = opac2
-        } else {
-            makeTile();
-            document.querySelector('.container').lastChild.style.backgroundColor = '#FFFFA8'
-        }
-    }
+for (let i = 0; i < 64; i++) {
+    let randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+    makeTile();
+    document.querySelector('.container').lastChild.style.backgroundColor = randomColor;
 }
-
+for (let i = 0; i < 15; i++) {
+    setInterval(function() {
+        while (document.querySelector('.container').firstChild) {
+            document.querySelector('.container').removeChild(document.querySelector('.container').firstChild);
+        }
+        for (let i = 0; i < 64; i++) {
+            let randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+            makeTile();
+            document.querySelector('.container').lastChild.style.backgroundColor = randomColor;
+        }
+    }, 2000)
+}
