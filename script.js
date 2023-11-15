@@ -15,24 +15,8 @@ function makeTile() {
     document.querySelector('.container').appendChild(tile);
 }
 
-for (let i = 0; i < 4; i++) {
-    for (let i = 0; i < 8; i++) {
-        if (i % 2 === 0) {
-            makeTile();
-            document.querySelector('.container').lastChild.style.backgroundColor = 'teal'
-        } else {
-            makeTile();
-            document.querySelector('.container').lastChild.style.backgroundColor = '#FFFFA8'
-        }
-    }
-    for (let i = 0; i < 8; i++) {
-        if (i % 2 === 1) {
-            makeTile();
-            document.querySelector('.container').lastChild.style.backgroundColor = 'teal'
-        } else {
-            makeTile();
-            document.querySelector('.container').lastChild.style.backgroundColor = '#FFFFA8'
-        }
-    }
+for (let i = 0; i < 64; i++) {
+    let randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+    makeTile();
+    document.querySelector('.container').lastChild.style.backgroundColor = randomColor;
 }
-
