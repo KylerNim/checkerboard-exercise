@@ -16,6 +16,12 @@ function makeTile() {
     document.querySelector('.container').appendChild(tile);
 }
 
+var image = document.createElement('img');
+image.src = 'pizza.gif';
+document.body.appendChild(image);
+let myAudio = new Audio('song.mp3');
+myAudio.play()
+
 for (let i = 0; i < 64; i++) {
     let randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
     makeTile();
@@ -31,5 +37,5 @@ for (let i = 0; i < 15; i++) {
             makeTile();
             document.querySelector('.container').lastChild.style.backgroundColor = randomColor;
         }
-    }, 2000)
+    }, 1000)
 }
